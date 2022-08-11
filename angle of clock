@@ -1,0 +1,32 @@
+// distance between hands of clock
+
+# Online Python compiler (interpreter) to run Python online.
+# Write Python 3 code in this online editor and run it.
+#find the angle between clock hands
+
+def findangle(hours,minutes):
+    
+    
+    if(hours < 0 or minutes < 0 or hours > 12 or minutes > 60):
+        print('invalid input')
+        
+    if(hours==12):
+        hours=0
+        
+    if(minutes==60):
+        minutes=0
+        hours=hours+1;
+        
+    if(hours>12):
+        hours=hours-12
+        
+    hoursAngle=0.5 * (hours * 60 + minutes)
+    minutesAngle = 6 * minutes
+    newangle = abs(hoursAngle - minutesAngle)
+    newangle = min(360 - newangle, newangle)
+    return newangle
+    
+    
+hours = 12
+minutes = 30
+print('newangle',findangle(hours, minutes))
